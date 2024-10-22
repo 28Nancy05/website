@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shape Map</title>
+    <style>
+      
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        img {
+            width: 512px;
+            height: 512px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .center{
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <img src="img.jpg" alt="Shapes Picture" usemap="#shapes-map" class="center">
+    <map name="shapes-map">
+        <area shape="rect" coords="50,50,200,200" href="square.html" target="_blank" alt="Square Description">
+    
+        <area shape="circle" coords="350,150,100" href="circle.html" target="_blank" alt="Circle Description">
+     
+        <area shape="poly" coords="100,300,50,450,150,450" href="triangle.html" target="_blank" alt="Triangle Description">
+     
+        <area shape="poly" coords="300,300,350,350,400,300,380,400,320,400" href="star.html" target="_blank" alt="Star Description">
+    </map>
+</body>
+</html>

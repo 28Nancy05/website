@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Arithmetic Operations and Image Slideshow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: white;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: beige ;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .arithmetic-operations {
+            margin-bottom: 40px;
+        }
+
+        .arithmetic-operations input[type="number"] {
+            width: 100%;
+            height: 40px;
+            margin-bottom: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border: 1px solid #ccc;
+        }
+
+        .arithmetic-operations button {
+            width: 100%;
+            height: 40px;
+            padding: 10px;
+            font-size: 18px;
+            background-color: beige;
+            color: #000000;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .arithmetic-operations button:hover {
+            background-color: #edcfa9;
+        }
+
+        .result {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #000000;
+            background-color: beige;
+        }
+
+        .image-slideshow {
+            position: relative;
+        }
+
+        .image {
+            display: none;
+            width: 100%;
+            height: 400px;
+            object-fit: contain;
+            border-radius: 10px;
+        }
+
+        .image.show {
+            display: block;
+        }
+
+        .next-button,
+        .previous-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: beige;
+            color: #000000;
+            border: none;
+            padding: 10px 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .next-button {
+            right: 0;
+        }
+
+        .previous-button {
+            left: 0;
+        }
+
+        .next-button:hover,
+        .previous-button:hover {
+            background-color: #edcfa9;
+        }
+        
+        h1 {
+
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Arithmetic Operations</h1>
+        <div class="arithmetic-operations">
+            <input id="num1" type="number" placeholder="Number 1">
+            <input id="num2" type="number" placeholder="Number 2">
+            <button id="add-button">Add</button>
+            <button id="subtract-button">Subtract</button>
+            <button id="multiply-button">Multiply</button>
+            <button id="divide-button">Divide</button>
+            <button id="modulus-button">Modulus</button>
+            <button id="power-button">Power</button>
+            <button id="sqrt-button">Square Root</button>
+            <p class="result" id="result"></p>
+        </div>
+        <hr>
+        <h1>Image Slideshow</h1>
+        <div class="image-slideshow">
+            <img class="image show" src="ma.jpeg" alt="Image 1">
+            <img class="image" src="math.jpeg" alt="Image 2">
+            <img class="image"
+                src="Geography Retro Cartoon Set.jpeg"
+                alt="Image 3">
+            <img class="image"
+                src="sc.jpeg"
+                alt="Image 4">
+            <button class="next-button">Next</button>
+            <button class="previous-button">Previous</button>
+        </div>
+    </div>
+
+    <script>
+        function add(x, y) {
+            return x + y;
+        }
+
+        function subtract(x, y) {
+            return x - y;
+        }
+
+        function multiply(x, y) {
+            return x * y;
+        }
+
+        function divide(x, y) {
+            if (y !== 0) {
+                return x / y;
+            } else {
+                return "Error: Division by zero is not allowed";
+            }
+        }
+
+        function modulus(x, y) {
+            return x % y;
+        }
+
+        function power(x, y) {
+            return Math.pow(x, y);
+        }
+
+        function sqrt(x) {
+            return Math.sqrt(x);
+        }
+
+        
+        const num1Input = document.getElementById('num1');
+        const num2Input = document.getElementById('num2');
+        const addButton = document.getElementById('add-button');
+        const subtractButton = document.getElementById('subtract-button');
+        const multiplyButton = document.getElementById('multiply-button');
+        const divideButton = document.getElementById('divide-button');
+        const modulusButton = document.getElementById('modulus-button');
+        const powerButton = document.getElementById('power-button');
+        const sqrtButton = document.getElementById('sqrt-button');
+        const resultParagraph = document.getElementById('result');
+
+       
+        addButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            const result = add(num1, num2);
+            resultParagraph.textContent = `Result: ${result}`;
+        });
+
+        subtractButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            const result = subtract(num1, num2);
+            resultParagraph.textContent = `Result: ${result}`;
+        });
+
+        multiplyButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            const result = multiply(num1, num2);
+            resultParagraph.textContent = `Result: ${result}`;
+        });
+
+        divideButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            const result = divide(num1, num2);
+            resultParagraph.textContent = `Result: ${result}`;
+        });
+
+        modulusButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            const result = modulus(num1, num2);
+            resultParagraph.textContent = `Result: ${result}`;
+        });
+        powerButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const num2 = parseFloat(num2Input.value);
+            const result = power(num1, num2);
+            resultParagraph.textContent = `Result: ${result}`;
+        });
+
+        sqrtButton.addEventListener('click', () => {
+            const num1 = parseFloat(num1Input.value);
+            const result = sqrt(num1);
+            resultParagraph.textContent = `Result: ${result}`;
+        });
+
+        // Image Slideshow  
+        const images = document.querySelectorAll('.image');
+        let currentIndex = 0;
+
+        function showNextImage() {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex + 1) % images.length;
+            images[currentIndex].style.display = 'block';
+        }
+
+        function showPreviousImage() {
+            images[currentIndex].style.display = 'none';
+            currentIndex = (currentIndex - 1 + images.length) % images.length;
+            images[currentIndex].style.display = 'block';
+        }
+
+        function animateImages() {
+            showNextImage();
+            setTimeout(animateImages, 3000);
+        }
+
+        animateImages();
+
+        document.querySelector('.next-button').addEventListener('click', showNextImage);
+        document.querySelector('.previous-button').addEventListener('click', showPreviousImage);  
+    </script>
+</body>
+
+</html>
+
